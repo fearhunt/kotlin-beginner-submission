@@ -1,26 +1,28 @@
 package com.example.kotlinbeginnersubmission
 
-import android.os.Bundle
-import com.google.android.material.bottomnavigation.BottomNavigationView
 import androidx.appcompat.app.AppCompatActivity
-import androidx.navigation.findNavController
-import androidx.navigation.ui.AppBarConfiguration
-import androidx.navigation.ui.setupActionBarWithNavController
-import androidx.navigation.ui.setupWithNavController
+import android.os.Bundle
+import androidx.recyclerview.widget.LinearLayoutManager
+import androidx.recyclerview.widget.RecyclerView
 
 class MainActivity : AppCompatActivity() {
+    private lateinit var rvNBATeams: RecyclerView
+    private var list: ArrayList<NBATeam> = arrayListOf()
 
     override fun onCreate(savedInstanceState: Bundle?) {
         super.onCreate(savedInstanceState)
         setContentView(R.layout.activity_main)
-        val navView: BottomNavigationView = findViewById(R.id.nav_view)
 
-        val navController = findNavController(R.id.nav_host_fragment)
-        // Passing each menu ID as a set of Ids because each
-        // menu should be considered as top level destinations.
-        val appBarConfiguration = AppBarConfiguration(setOf(
-                R.id.navigation_home, R.id.navigation_dashboard, R.id.navigation_notifications))
-        setupActionBarWithNavController(navController, appBarConfiguration)
-        navView.setupWithNavController(navController)
+        rvNBATeams = findViewById(R.id.rv_nba_teams)
+        rvNBATeams.setHasFixedSize(true)
+
+        list.addAll(NBATeamsData.listData)
+        showRecyclerList()
+    }
+
+    private fun showRecyclerList() {
+        rvNBATeams.layoutManager = LinearLayoutManager(this)
+        val listNBATeamAdapter = ListNBATeamAdapter(list)
+        rvNBATeams.adapter = listNBATeamAdapter
     }
 }

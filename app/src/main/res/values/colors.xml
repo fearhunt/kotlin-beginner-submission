@@ -1,9 +1,9 @@
 <?xml version="1.0" encoding="utf-8"?>
 <resources>
-    <color name="green_200">#ACA8854D</color>
-    <color name="green_500">#ACA88599</color>
+    <color name="green_200">#99ACA885</color>
+    <color name="green_500">#CCACA885</color>
     <color name="green">#ACA885</color>
-    <color name="wheat_200">#E1CA964D</color>
+    <color name="wheat_200">#4DE1CA96</color>
     <color name="wheat">#E1CA96</color>
     <color name="black">#FF000000</color>
     <color name="white">#FFFFFFFF</color>

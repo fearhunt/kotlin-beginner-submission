@@ -1,6 +1,8 @@
 <resources>
-    <string name="app_name">Kotlin Beginner Submission</string>
-    <string name="title_home">Home</string>
-    <string name="title_dashboard">Dashboard</string>
-    <string name="title_notifications">Notifications</string>
+    <string name="app_name">NBA Teams App</string>
+    <string name="nba_teams_name">NBA Team</string>
+    <string name="detail">Detail</string>
+    <string name="wins">Wins</string>
+    <string name="loses">Loses</string>
+    <string name="twitter">Twitter</string>
 </resources>
