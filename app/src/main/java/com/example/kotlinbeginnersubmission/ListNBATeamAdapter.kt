@@ -24,7 +24,7 @@ class ListNBATeamAdapter(private val listNBATeam: ArrayList<NBATeam>) : Recycler
 
         Glide.with(holder.itemView.context)
                 .load(nbaTeam.photo)
-                .apply(RequestOptions().override(55, 55))
+                .apply(RequestOptions().override(64, 64))
                 .into(holder.imgPhoto)
 
         holder.tvName.text = nbaTeam.name
@@ -32,8 +32,15 @@ class ListNBATeamAdapter(private val listNBATeam: ArrayList<NBATeam>) : Recycler
         holder.tvTwitter.text = nbaTeam.twitter
         holder.btnDetail.setOnClickListener {
             val context = holder.itemView.context
+
             val intent = Intent(context, NBATeamDetailActivity::class.java)
-            intent.putExtra(NBATeamDetailActivity.EXTRA_NBA_TEAM, nbaTeam)
+            intent.putExtra(NBATeamDetailActivity.EXTRA_NBA_TEAM_NAME, nbaTeam.name)
+            intent.putExtra(NBATeamDetailActivity.EXTRA_NBA_TEAM_DETAIL, nbaTeam.detail)
+            intent.putExtra(NBATeamDetailActivity.EXTRA_NBA_TEAM_WINS, nbaTeam.wins)
+            intent.putExtra(NBATeamDetailActivity.EXTRA_NBA_TEAM_LOSES, nbaTeam.loses)
+            intent.putExtra(NBATeamDetailActivity.EXTRA_NBA_TEAM_TWITTER, nbaTeam.twitter)
+            intent.putExtra(NBATeamDetailActivity.EXTRA_NBA_TEAM_PHOTO, nbaTeam.photo)
+
             context.startActivity(intent)
         }
     }

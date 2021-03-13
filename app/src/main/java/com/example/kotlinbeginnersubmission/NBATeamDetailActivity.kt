@@ -6,20 +6,21 @@ import android.os.Bundle
 import android.view.View
 import android.widget.Button
 import android.widget.EditText
+import android.widget.ImageView
 import android.widget.TextView
 import androidx.appcompat.app.AppCompatActivity
 
-class NBATeamDetailActivity : AppCompatActivity(), View.OnClickListener {
+class NBATeamDetailActivity : AppCompatActivity() {
     private lateinit var edtPhoneNumber: EditText
     private lateinit var btnShare: Button
 
     companion object {
-        const val EXTRA_NBA_TEAM = "extra_nba_team"
-//        const val NBA_TEAM_NAME = "nba_team_name"
-//        const val NBA_TEAM_DETAIL = "nba_team_detail"
-//        const val NBA_TEAM_TWITTER = "nba_team_twitter"
-//        const val NBA_TEAM_WINS = "nba_team_wins"
-//        const val NBA_TEAM_LOSES = "nba_team_loses"
+        const val EXTRA_NBA_TEAM_NAME = "extra_nba_team_name"
+        const val EXTRA_NBA_TEAM_DETAIL = "extra_nba_team_detail"
+        const val EXTRA_NBA_TEAM_TWITTER = "extra_nba_team_twitter"
+        const val EXTRA_NBA_TEAM_WINS = "extra_nba_team_wins"
+        const val EXTRA_NBA_TEAM_LOSES = "extra_nba_team_loses"
+        const val EXTRA_NBA_TEAM_PHOTO = "extra_nba_team_photo"
     }
 
     override fun onCreate(savedInstanceState: Bundle?) {
@@ -31,29 +32,27 @@ class NBATeamDetailActivity : AppCompatActivity(), View.OnClickListener {
         val tvNBATeamTwitter: TextView = findViewById(R.id.tv_item_twitter)
         val tvNBATeamWins: TextView = findViewById(R.id.tv_item_wins)
         val tvNBATeamLoses: TextView = findViewById(R.id.tv_item_loses)
+        val ivNBATeamPhoto: ImageView = findViewById(R.id.iv_team_photo)
 
-//        val nbaTeam = intent.getParcelableExtra(EXTRA_NBA_TEAM) as NBATeam
+        val name = intent.getStringExtra(EXTRA_NBA_TEAM_NAME)
+        val detail = intent.getStringExtra(EXTRA_NBA_TEAM_DETAIL)
+        val twitter = intent.getStringExtra(EXTRA_NBA_TEAM_TWITTER)
+        val wins = intent.getStringExtra(EXTRA_NBA_TEAM_WINS)
+        val loses = intent.getStringExtra(EXTRA_NBA_TEAM_LOSES)
+        val photo = intent.getIntExtra(EXTRA_NBA_TEAM_PHOTO, 0)
 
-//        val name = intent.getStringExtra(NBA_TEAM_NAME)
-//        val detail = intent.getStringExtra(NBA_TEAM_DETAIL)
-//        val twitter = intent.getStringExtra(NBA_TEAM_TWITTER)
-//        val wins = intent.getStringExtra(NBA_TEAM_WINS)
-//        val loses = intent.getStringExtra(NBA_TEAM_LOSES)
-//
-//        tvNBATeamName.text = name
-//        tvNBATeamDetail.text = detail
-//        tvNBATeamTwitter.text = twitter
-//        tvNBATeamWins.text = wins
-//        tvNBATeamLoses.text = loses
+        tvNBATeamName.text = name
+        tvNBATeamDetail.text = detail
+        tvNBATeamTwitter.text = twitter
+        tvNBATeamWins.text = wins
+        tvNBATeamLoses.text = loses
+        ivNBATeamPhoto.setImageResource(photo)
 
         edtPhoneNumber = findViewById(R.id.edt_phone_number)
-        btnShare = findViewById(R.id.button_share)
 
-        btnShare.setOnClickListener(this)
-    }
+        val btnShare: Button = findViewById(R.id.button_share)
 
-    override fun onClick(v: View?) {
-        if (v?.id == R.id.button_share) {
+        btnShare.setOnClickListener {
             val inputPhoneNumber = edtPhoneNumber.text.toString().trim()
 
             var isEmptyFields = false
@@ -66,7 +65,9 @@ class NBATeamDetailActivity : AppCompatActivity(), View.OnClickListener {
             }
 
             if (!isEmptyFields) {
-                val uri: Uri = Uri.parse("https://www.api.whatsapp.com/send?phone=$inputPhoneNumber")
+                val message = "Hello there! Checkout this awesome NBA Team called *$name*, they currently have records with *$wins wins* and *$loses loses*. You can also see their awesome other activities on Twitter $twitter"
+
+                val uri: Uri = Uri.parse("https://api.whatsapp.com/send?phone=$inputPhoneNumber&text=$message")
 
                 val intent = Intent(Intent.ACTION_VIEW, uri)
                 startActivity(intent)
