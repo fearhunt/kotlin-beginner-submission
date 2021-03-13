@@ -1,15 +1,19 @@
 package com.example.kotlinbeginnersubmission
 
+import android.app.Activity
+import android.content.Intent
 import android.view.LayoutInflater
 import android.view.View
 import android.view.ViewGroup
+import android.widget.Button
 import android.widget.ImageView
 import android.widget.TextView
+import androidx.core.content.ContextCompat.startActivity
 import androidx.recyclerview.widget.RecyclerView
 import com.bumptech.glide.Glide
 import com.bumptech.glide.request.RequestOptions
 
-class ListNBATeamAdapter(val listNBATeam: ArrayList<NBATeam>) : RecyclerView.Adapter<ListNBATeamAdapter.ListViewHolder>() {
+class ListNBATeamAdapter(private val listNBATeam: ArrayList<NBATeam>) : RecyclerView.Adapter<ListNBATeamAdapter.ListViewHolder>() {
     override fun onCreateViewHolder(viewGroup: ViewGroup, i: Int): ListViewHolder {
         val view: View = LayoutInflater.from(viewGroup.context).inflate(R.layout.item_row_nba_teams, viewGroup, false)
         return ListViewHolder(view)
@@ -25,9 +29,13 @@ class ListNBATeamAdapter(val listNBATeam: ArrayList<NBATeam>) : RecyclerView.Ada
 
         holder.tvName.text = nbaTeam.name
         holder.tvDetail.text = nbaTeam.detail
-//        holder.tvWins.text = nbaTeam.wins
-//        holder.tvLoses.text = nbaTeam.loses
         holder.tvTwitter.text = nbaTeam.twitter
+        holder.btnDetail.setOnClickListener {
+            val activity = holder.itemView.context as Activity
+            val intent = Intent(activity, NBATeamDetailActivity::class.java)
+//            intent.putExtra(listBicycle)[position]
+//            startActivity(intent)
+        }
     }
 
     override fun getItemCount(): Int {
@@ -37,10 +45,19 @@ class ListNBATeamAdapter(val listNBATeam: ArrayList<NBATeam>) : RecyclerView.Ada
     inner class ListViewHolder(itemView: View) : RecyclerView.ViewHolder(itemView) {
         var tvName: TextView = itemView.findViewById(R.id.tv_item_name)
         var tvDetail: TextView = itemView.findViewById(R.id.tv_item_detail)
-//        var tvWins: TextView = itemView.findViewById(R.id.tv_item_wins)
-//        var tvLoses: TextView = itemView.findViewById(R.id.tv_item_loses)
         var tvTwitter: TextView = itemView.findViewById(R.id.tv_item_twitter)
         var imgPhoto: ImageView = itemView.findViewById(R.id.img_item_photo)
+        var btnDetail: Button = itemView.findViewById(R.id.button_details)
     }
+
+//    override fun onClick(v: View?) {
+//        if (v?.id == R.id.button_details) {
+////            println("coba")
+////            val moveWithDataIntent = Intent(this@ListNBATeamAdapter, NBATeamDetailActivity::class.java)
+////            moveWithDataIntent.putExtra(NBATeamDetailActivity.EXTRA_NAME, "DicodingAcademy Boy")
+////            moveWithDataIntent.putExtra(NBATeamDetailActivity.EXTRA_AGE, 5)
+////            startActivity(moveWithDataIntent)
+//        }
+//    }
 
 }

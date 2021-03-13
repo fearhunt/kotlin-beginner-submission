@@ -41,9 +41,8 @@
             android:layout_marginVertical="8dp" >
 
             <LinearLayout
-                android:layout_width="wrap_content"
-                android:layout_height="wrap_content"
                 android:layout_weight="1"
+                android:layout_height="wrap_content"
                 android:layout_gravity="center_vertical"
                 android:paddingRight="8dp"
                 android:orientation="vertical">
@@ -61,39 +60,22 @@
                     android:autoLink="web"
                     android:linksClickable="true"
                     android:textStyle="bold"
-                    android:textSize="11dp"
+                    android:textSize="11sp"
                     android:textColorLink="@color/green"
                     android:text="@string/twitter"/>
             </LinearLayout>
 
             <LinearLayout
-                android:layout_width="wrap_content"
+                android:layout_weight="1"
                 android:layout_height="wrap_content"
-                android:layout_gravity="center"
-                android:layout_weight="1" >
+                android:gravity="center" >
 
                 <Button
                     android:id="@+id/button_details"
                     style="@style/Button"
                     android:background="@drawable/border"
-                    android:text="@string/button_detail" />
+                    android:text="@string/button_details" />
             </LinearLayout>
         </TableRow>
-
-<!--        <TextView-->
-<!--            android:id="@+id/tv_item_wins"-->
-<!--            android:layout_width="match_parent"-->
-<!--            android:layout_height="wrap_content"-->
-<!--            android:ellipsize="end"-->
-<!--            android:maxLines="2"-->
-<!--            tools:text="@string/wins" />-->
-
-<!--        <TextView-->
-<!--            android:id="@+id/tv_item_loses"-->
-<!--            android:layout_width="match_parent"-->
-<!--            android:layout_height="wrap_content"-->
-<!--            android:ellipsize="end"-->
-<!--            android:maxLines="2"-->
-<!--            tools:text="@string/loses" />-->
     </LinearLayout>
 </LinearLayout>
