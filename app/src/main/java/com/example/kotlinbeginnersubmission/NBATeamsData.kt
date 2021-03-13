@@ -90,12 +90,15 @@ object NBATeamsData {
             val list = arrayListOf<NBATeam>()
             for (index in nbaTeamNames.indices) {
                 val nbaTeam = NBATeam()
+
                 nbaTeam.name = nbaTeamNames[index]
                 nbaTeam.detail = nbaTeamDetails[index]
                 nbaTeam.wins = nbaTeamWins[index]
                 nbaTeam.loses = nbaTeamLoses[index]
                 nbaTeam.twitter = nbaTeamTwitter[index]
                 nbaTeam.photo = nbaTeamImages[index]
+
+                list.add(nbaTeam)
             }
 
             return list

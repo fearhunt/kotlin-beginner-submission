@@ -31,13 +31,13 @@
             android:textStyle="bold"
             tools:text="@string/nba_teams_name" />
 
-<!--        <TextView-->
-<!--            android:id="@+id/tv_item_detail"-->
-<!--            android:layout_width="match_parent"-->
-<!--            android:layout_height="wrap_content"-->
-<!--            android:ellipsize="end"-->
-<!--            android:maxLines="2"-->
-<!--            tools:text="@string/detail" />-->
+        <TextView
+            android:id="@+id/tv_item_detail"
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:ellipsize="end"
+            android:maxLines="2"
+            tools:text="@string/detail" />
 
 <!--        <TextView-->
 <!--            android:id="@+id/tv_item_wins"-->
