@@ -176,8 +176,9 @@
                 android:layout_weight="2"
                 android:layout_width="wrap_content"
                 android:layout_height="wrap_content"
+                android:focusable="false"
                 android:layout_marginRight="12dp"
-                android:inputType="numberDecimal"
+                android:inputType="phone"
                 android:lines="1" />
 
             <Button

@@ -14,11 +14,12 @@ class NBATeamDetailActivity : AppCompatActivity(), View.OnClickListener {
     private lateinit var btnShare: Button
 
     companion object {
-        const val NBA_TEAM_NAME = "nba_team_name"
-        const val NBA_TEAM_DETAIL = "nba_team_detail"
-        const val NBA_TEAM_TWITTER = "nba_team_twitter"
-        const val NBA_TEAM_WINS = "nba_team_wins"
-        const val NBA_TEAM_LOSES = "nba_team_loses"
+        const val EXTRA_NBA_TEAM = "extra_nba_team"
+//        const val NBA_TEAM_NAME = "nba_team_name"
+//        const val NBA_TEAM_DETAIL = "nba_team_detail"
+//        const val NBA_TEAM_TWITTER = "nba_team_twitter"
+//        const val NBA_TEAM_WINS = "nba_team_wins"
+//        const val NBA_TEAM_LOSES = "nba_team_loses"
     }
 
     override fun onCreate(savedInstanceState: Bundle?) {
@@ -31,17 +32,19 @@ class NBATeamDetailActivity : AppCompatActivity(), View.OnClickListener {
         val tvNBATeamWins: TextView = findViewById(R.id.tv_item_wins)
         val tvNBATeamLoses: TextView = findViewById(R.id.tv_item_loses)
 
-        val name = intent.getStringExtra(NBA_TEAM_NAME)
-        val detail = intent.getStringExtra(NBA_TEAM_DETAIL)
-        val twitter = intent.getStringExtra(NBA_TEAM_TWITTER)
-        val wins = intent.getStringExtra(NBA_TEAM_WINS)
-        val loses = intent.getStringExtra(NBA_TEAM_LOSES)
+//        val nbaTeam = intent.getParcelableExtra(EXTRA_NBA_TEAM) as NBATeam
 
-        tvNBATeamName.text = name
-        tvNBATeamDetail.text = detail
-        tvNBATeamTwitter.text = twitter
-        tvNBATeamWins.text = wins
-        tvNBATeamLoses.text = loses
+//        val name = intent.getStringExtra(NBA_TEAM_NAME)
+//        val detail = intent.getStringExtra(NBA_TEAM_DETAIL)
+//        val twitter = intent.getStringExtra(NBA_TEAM_TWITTER)
+//        val wins = intent.getStringExtra(NBA_TEAM_WINS)
+//        val loses = intent.getStringExtra(NBA_TEAM_LOSES)
+//
+//        tvNBATeamName.text = name
+//        tvNBATeamDetail.text = detail
+//        tvNBATeamTwitter.text = twitter
+//        tvNBATeamWins.text = wins
+//        tvNBATeamLoses.text = loses
 
         edtPhoneNumber = findViewById(R.id.edt_phone_number)
         btnShare = findViewById(R.id.button_share)

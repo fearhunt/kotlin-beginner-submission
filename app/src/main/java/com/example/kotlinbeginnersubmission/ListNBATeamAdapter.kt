@@ -31,10 +31,10 @@ class ListNBATeamAdapter(private val listNBATeam: ArrayList<NBATeam>) : Recycler
         holder.tvDetail.text = nbaTeam.detail
         holder.tvTwitter.text = nbaTeam.twitter
         holder.btnDetail.setOnClickListener {
-            val activity = holder.itemView.context as Activity
-            val intent = Intent(activity, NBATeamDetailActivity::class.java)
-//            intent.putExtra(listBicycle)[position]
-//            startActivity(intent)
+            val context = holder.itemView.context
+            val intent = Intent(context, NBATeamDetailActivity::class.java)
+            intent.putExtra(NBATeamDetailActivity.EXTRA_NBA_TEAM, nbaTeam)
+            context.startActivity(intent)
         }
     }
 
@@ -49,15 +49,4 @@ class ListNBATeamAdapter(private val listNBATeam: ArrayList<NBATeam>) : Recycler
         var imgPhoto: ImageView = itemView.findViewById(R.id.img_item_photo)
         var btnDetail: Button = itemView.findViewById(R.id.button_details)
     }
-
-//    override fun onClick(v: View?) {
-//        if (v?.id == R.id.button_details) {
-////            println("coba")
-////            val moveWithDataIntent = Intent(this@ListNBATeamAdapter, NBATeamDetailActivity::class.java)
-////            moveWithDataIntent.putExtra(NBATeamDetailActivity.EXTRA_NAME, "DicodingAcademy Boy")
-////            moveWithDataIntent.putExtra(NBATeamDetailActivity.EXTRA_AGE, 5)
-////            startActivity(moveWithDataIntent)
-//        }
-//    }
-
 }
