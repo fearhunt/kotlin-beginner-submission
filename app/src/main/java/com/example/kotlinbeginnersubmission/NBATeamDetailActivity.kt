@@ -27,6 +27,8 @@ class NBATeamDetailActivity : AppCompatActivity() {
         super.onCreate(savedInstanceState)
         setContentView(R.layout.activity_nba_team_detail)
 
+        supportActionBar?.title = "NBA Team Detail"
+
         val tvNBATeamName: TextView = findViewById(R.id.tv_item_name)
         val tvNBATeamDetail: TextView = findViewById(R.id.tv_item_detail)
         val tvNBATeamTwitter: TextView = findViewById(R.id.tv_item_twitter)
