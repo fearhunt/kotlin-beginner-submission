@@ -24,10 +24,10 @@ class ListNBATeamAdapter(val listNBATeam: ArrayList<NBATeam>) : RecyclerView.Ada
                 .into(holder.imgPhoto)
 
         holder.tvName.text = nbaTeam.name
-//        holder.tvDetail.text = nbaTeam.detail
+        holder.tvDetail.text = nbaTeam.detail
 //        holder.tvWins.text = nbaTeam.wins
 //        holder.tvLoses.text = nbaTeam.loses
-//        holder.tvTwitter.text = nbaTeam.twitter
+        holder.tvTwitter.text = nbaTeam.twitter
     }
 
     override fun getItemCount(): Int {
@@ -36,10 +36,10 @@ class ListNBATeamAdapter(val listNBATeam: ArrayList<NBATeam>) : RecyclerView.Ada
 
     inner class ListViewHolder(itemView: View) : RecyclerView.ViewHolder(itemView) {
         var tvName: TextView = itemView.findViewById(R.id.tv_item_name)
-//        var tvDetail: TextView = itemView.findViewById(R.id.tv_item_detail)
+        var tvDetail: TextView = itemView.findViewById(R.id.tv_item_detail)
 //        var tvWins: TextView = itemView.findViewById(R.id.tv_item_wins)
 //        var tvLoses: TextView = itemView.findViewById(R.id.tv_item_loses)
-//        var tvTwitter: TextView = itemView.findViewById(R.id.tv_item_twitter)
+        var tvTwitter: TextView = itemView.findViewById(R.id.tv_item_twitter)
         var imgPhoto: ImageView = itemView.findViewById(R.id.img_item_photo)
     }
 

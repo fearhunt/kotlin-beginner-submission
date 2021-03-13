@@ -2,16 +2,16 @@
 <LinearLayout xmlns:android="http://schemas.android.com/apk/res/android"
     xmlns:tools="http://schemas.android.com/tools"
     android:orientation="horizontal"
-    android:layout_width="match_parent"
-    android:layout_height="wrap_content"
+    style="@style/Card"
     android:padding="16dp" >
 
     <de.hdodenhof.circleimageview.CircleImageView
         android:id="@+id/img_item_photo"
-        android:layout_width="55dp"
-        android:layout_height="55dp"
-        android:layout_marginEnd="16dp"
-        android:layout_marginRight="16dp"
+        android:layout_width="64dp"
+        android:layout_height="64dp"
+        android:layout_marginEnd="12dp"
+        android:layout_marginRight="12dp"
+        android:layout_gravity="center_vertical"
         tools:src="@android:color/darker_gray" />
 
     <LinearLayout
@@ -24,11 +24,7 @@
 
         <TextView
             android:id="@+id/tv_item_name"
-            android:layout_width="match_parent"
-            android:layout_height="wrap_content"
-            android:layout_marginBottom="8dp"
-            android:textSize="16sp"
-            android:textStyle="bold"
+            style="@style/Title"
             tools:text="@string/nba_teams_name" />
 
         <TextView
@@ -38,6 +34,51 @@
             android:ellipsize="end"
             android:maxLines="2"
             tools:text="@string/detail" />
+
+        <TableRow
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:layout_marginVertical="8dp" >
+
+            <LinearLayout
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:layout_weight="1"
+                android:layout_gravity="center_vertical"
+                android:paddingRight="8dp"
+                android:orientation="vertical">
+
+                <TextView
+                    android:layout_width="fill_parent"
+                    android:layout_height="wrap_content"
+                    style="@style/TextLink"
+                    android:text="Twitter:" />
+
+                <TextView
+                    android:id="@+id/tv_item_twitter"
+                    android:layout_width="wrap_content"
+                    android:layout_height="wrap_content"
+                    android:autoLink="web"
+                    android:linksClickable="true"
+                    android:textStyle="bold"
+                    android:textSize="11dp"
+                    android:textColorLink="@color/green"
+                    android:text="@string/twitter"/>
+            </LinearLayout>
+
+            <LinearLayout
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:layout_gravity="center"
+                android:layout_weight="1" >
+
+                <Button
+                    android:id="@+id/button_details"
+                    style="@style/Button"
+                    android:background="@drawable/border"
+                    android:text="@string/button_detail" />
+            </LinearLayout>
+        </TableRow>
 
 <!--        <TextView-->
 <!--            android:id="@+id/tv_item_wins"-->
@@ -54,13 +95,5 @@
 <!--            android:ellipsize="end"-->
 <!--            android:maxLines="2"-->
 <!--            tools:text="@string/loses" />-->
-
-<!--        <TextView-->
-<!--            android:id="@+id/tv_item_twitter"-->
-<!--            android:layout_width="match_parent"-->
-<!--            android:layout_height="wrap_content"-->
-<!--            android:ellipsize="end"-->
-<!--            android:maxLines="2"-->
-<!--            tools:text="@string/twitter" />-->
     </LinearLayout>
 </LinearLayout>

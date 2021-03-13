@@ -4,5 +4,6 @@
     <string name="detail">Detail</string>
     <string name="wins">Wins</string>
     <string name="loses">Loses</string>
-    <string name="twitter">Twitter</string>
+    <string name="twitter">https://www.twitter.com</string>
+    <string name="button_detail">Lebih Detail</string>
 </resources>
